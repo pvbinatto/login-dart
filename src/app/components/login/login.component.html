@@ -1,0 +1,55 @@
+<section>
+  <div class="div-bg"></div>
+  <div class="div-login">
+    <div class="container-login">
+      <div class="image">
+        <img src="../../../assets/images/logo.jpg" alt="logo" class="logo" />
+      </div>
+      <form (ngSubmit)="login()">
+        <mat-form-field class="form-input" appearance="outline">
+          <mat-label>Usuário</mat-label>
+          <input
+            type="text"
+            matInput
+            [(ngModel)]="userLogin.username"
+            [formControl]="userFormControl"
+            [errorStateMatcher]="matcher"
+            placeholder=""
+          />
+          <mat-error *ngIf="!userFormControl.hasError('required')">
+            Por favor, informe um e-mail válido!
+          </mat-error>
+          <mat-error *ngIf="userFormControl.hasError('required')">
+            Informe seu e-mail: <strong>obrigatório</strong>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field class="form-input" appearance="outline">
+          <mat-label> Senha</mat-label>
+          <input
+            [type]="hide ? 'password' : 'text'"
+            matInput
+            [formControl]="passwordControl"
+            [(ngModel)]="userLogin.password"
+            [errorStateMatcher]="matcher"
+            placeholder=""
+          />
+          <button
+            mat-icon-button
+            matSuffix
+            (click)="hide = !hide"
+            [attr.aria-label]="'Esconder Senha'"
+            [attr.aria-pressed]="hide"
+          >
+            <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+          </button>
+          <mat-error *ngIf="passwordControl.hasError('required')">
+            Informe sua senha: <strong>obrigatório</strong>
+          </mat-error>
+        </mat-form-field>
+        <div class="submit-button">
+          <button mat-raised-button color="primary" type="submit">CONTINUAR</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
