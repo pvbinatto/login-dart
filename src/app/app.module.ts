@@ -20,7 +20,18 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatInputModule } from '@angular/material/input';
 import { HttpClientModule } from '@angular/common/http';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { NgxSpinnerModule } from "ngx-spinner";
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatCardModule } from '@angular/material/card';
+import { MatTableModule } from '@angular/material/table';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatSelectModule } from '@angular/material/select';
+
+import { NgxSpinnerModule } from 'ngx-spinner';
+import { ProfileComponent } from './components/profile/profile.component';
 
 const MATERIAL_MODULES = [
   MatSliderModule,
@@ -30,6 +41,15 @@ const MATERIAL_MODULES = [
   MatGridListModule,
   MatInputModule,
   MatSnackBarModule,
+  MatToolbarModule,
+  MatSidenavModule,
+  MatListModule,
+  MatMenuModule,
+  MatCardModule,
+  MatTableModule,
+  MatExpansionModule,
+  MatTabsModule,
+  MatSelectModule,
 ];
 
 @NgModule({
@@ -41,6 +61,7 @@ const MATERIAL_MODULES = [
     DashboardComponent,
     LoginComponent,
     AuthenticationComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,
@@ -49,7 +70,7 @@ const MATERIAL_MODULES = [
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    NgxSpinnerModule.forRoot({ type: 'ball-scale-multiple' }),
+    NgxSpinnerModule,
     MATERIAL_MODULES,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

@@ -4,7 +4,10 @@ import { AuthGuard } from './auth/auth.guard';
 import { AuthenticationComponent } from './components/auth/authentication/authentication.component';
 import { DashboardComponent } from './components/home/dashboard/dashboard.component';
 import { HomeComponent } from './components/home/home.component';
+import { NavbarComponent } from './components/home/navbar/navbar.component';
+import { SidebarComponent } from './components/home/sidebar/sidebar.component';
 import { LoginComponent } from './components/login/login.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 const routes: Routes = [
   {
@@ -12,6 +15,7 @@ const routes: Routes = [
     component: HomeComponent,
     children: [
       { path: '', component: DashboardComponent },
+      { path: 'profile', component: ProfileComponent }
     ],
     canActivate: [AuthGuard],
   },
@@ -21,12 +25,12 @@ const routes: Routes = [
     children: [
       { path: '', redirectTo: 'login', pathMatch: 'full' },
       { path: 'login', component: LoginComponent },
-    ]
-  }
+    ],
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
