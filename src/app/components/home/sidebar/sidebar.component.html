@@ -1,1 +1,29 @@
-<p>sidebar works!</p>
+<mat-drawer-container autosize>
+  <mat-drawer #sidenav mode="over">
+    <mat-list>
+      <ng-container *ngFor="let item of menu">
+        <mat-list-item
+          (click)="sidenav.close()"
+          *ngIf="item.title"
+          [routerLink]="item.link"
+          [routerLinkActive]="item.active"
+          [routerLinkActiveOptions]="{ exact: true }"
+        >
+          <mat-icon [style.color]="item.color" mat-list-icon>
+            {{ item.icon }}
+          </mat-icon>
+          <div mat-line>{{ item.title }}</div>
+        </mat-list-item>
+      </ng-container>
+      <ng-container>
+        <mat-list-item (click)="logout()">
+          <mat-icon [style.color]="'#F58227'" mat-list-icon>
+            power_settings_new
+          </mat-icon>
+          <div mat-line>Logout</div>
+        </mat-list-item>
+      </ng-container>
+    </mat-list>
+  </mat-drawer>
+  <router-outlet></router-outlet>
+</mat-drawer-container>
