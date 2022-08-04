@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { NgxSpinnerService } from "ngx-spinner";
+import { Component, OnInit } from '@angular/core';
+import { NgxSpinnerService } from 'ngx-spinner';
 import {
   FormControl,
   FormGroupDirective,
@@ -11,6 +11,7 @@ import { ErrorStateMatcher } from '@angular/material/core';
 import { User } from 'src/app/models/user';
 import { AuthServiceService } from 'src/app/services/auth-service.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 
 /** Error when invalid control is dirty, touched, or submitted. */
 export class MyErrorStateMatcher implements ErrorStateMatcher {
@@ -32,13 +33,28 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
   userLogin: User = {
     username: '',
     password: '',
+    email: '',
+    firstName: '',
+    gender: '',
+    id: 0,
+    image: '',
+    lastName: '',
   };
 
-  constructor(private loginService: AuthServiceService, private _snackBar: MatSnackBar, private spinner: NgxSpinnerService) {}
+  constructor(
+    private loginService: AuthServiceService,
+    private _snackBar: MatSnackBar,
+    private spinner: NgxSpinnerService,
+    private router: Router
+  ) {}
+
+  ngOnInit(): void {
+    this.loginService.isAuthenticated();
+  }
 
   durationInSeconds = 5;
   hide = true;
@@ -67,7 +83,9 @@ export class LoginComponent {
   }
 
   actionForSuccess(forSuccess: any) {
-    console.log(forSuccess);
+    localStorage.setItem('data', JSON.stringify(forSuccess));
+    localStorage.setItem('token', forSuccess.token);
+    this.router.navigate(['/']);
   }
 
   actionForFailure(forFailure: any) {

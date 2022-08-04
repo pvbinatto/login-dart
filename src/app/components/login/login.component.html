@@ -16,11 +16,8 @@
             [errorStateMatcher]="matcher"
             placeholder=""
           />
-          <mat-error *ngIf="!userFormControl.hasError('required')">
-            Por favor, informe um e-mail válido!
-          </mat-error>
           <mat-error *ngIf="userFormControl.hasError('required')">
-            Informe seu e-mail: <strong>obrigatório</strong>
+            Informe seu usuário: <strong>obrigatório</strong>
           </mat-error>
         </mat-form-field>
         <mat-form-field class="form-input" appearance="outline">
