@@ -1,0 +1,26 @@
+.mat-toolbar.mat-primary {
+  background: #f58227 !important;
+  color: #fff;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.title {
+  cursor: pointer;
+}
+
+.welcome-text {
+  font-size: smaller;
+}
+.user-photo {
+    width: 100%;
+    background-color: #fff;
+    padding: 5px;
+    border-radius: 50%;
+    margin-top: -6px;
+}
+.welcome-text {
+    margin-right: 15px!important;
+}
