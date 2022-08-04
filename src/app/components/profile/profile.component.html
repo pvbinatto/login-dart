@@ -1,0 +1,90 @@
+<div class="container-fluid">
+  <mat-card>
+    <mat-card-title>Meu cadastro</mat-card-title>
+    <mat-card-content>
+      <form (ngSubmit)="onSubmit()">
+        <div>
+          <mat-form-field class="form-input" appearance="outline">
+            <mat-label>Usuário de Acesso</mat-label>
+            <input
+              type="text"
+              matInput
+              [(ngModel)]="userLogin.username"
+              [formControl]="userFormControl"
+              [errorStateMatcher]="matcher"
+              placeholder=""
+            />
+            <mat-error *ngIf="!firstNameControl.hasError('required')">
+              Informe seu usuário!
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field class="form-input" appearance="outline">
+            <mat-label>Primeiro Nome</mat-label>
+            <input
+              type="text"
+              matInput
+              [(ngModel)]="userLogin.firstName"
+              [formControl]="firstNameControl"
+              [errorStateMatcher]="matcher"
+              placeholder=""
+            />
+            <mat-error *ngIf="!firstNameControl.hasError('required')">
+              Informe seu primeiro nome!
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field class="form-input" appearance="outline">
+            <mat-label>Sobrenome</mat-label>
+            <input
+              type="text"
+              matInput
+              [(ngModel)]="userLogin.lastName"
+              [formControl]="lastNameControl"
+              [errorStateMatcher]="matcher"
+              placeholder=""
+            />
+            <mat-error *ngIf="!userFormControl.hasError('required')">
+              Por favor, informe o seu sobrenome!
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field class="form-input" appearance="outline">
+            <mat-label>E-mail</mat-label>
+            <input
+              type="email"
+              matInput
+              [(ngModel)]="userLogin.email"
+              [formControl]="emailControl"
+              [errorStateMatcher]="matcher"
+              placeholder=""
+            />
+            <mat-error *ngIf="!userFormControl.hasError('required')">
+              Por favor, informe o seu e-mail!
+            </mat-error>
+            <mat-error *ngIf="!userFormControl.hasError('invalid')">
+              E-mail inválido
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field class="form-input" appearance="outline">
+            <mat-label>Gênero</mat-label>
+            <mat-select>
+              <mat-option selected value="">Selecione</mat-option>
+              <mat-option value="female">Feminino</mat-option>
+              <mat-option value="male">Masculino</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </form>
+    </mat-card-content>
+    <mat-card-actions align="end">
+      <button mat-button routerLink="/">Voltar</button>
+      <button mat-button (click)="onSubmit()">Salvar</button>
+    </mat-card-actions>
+  </mat-card>
+</div>
