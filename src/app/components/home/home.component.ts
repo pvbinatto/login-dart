@@ -9,7 +9,13 @@ export class HomeComponent implements OnInit {
 
   constructor() { }
 
+  drawer: boolean = true;
+
   ngOnInit(): void {
+  }
+
+  drawerEvent($event: any) {
+    this.drawer = $event;
   }
 
 }
