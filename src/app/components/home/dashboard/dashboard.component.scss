@@ -1,0 +1,92 @@
+.container {
+  padding: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.container .card {
+  width: 23%;
+  margin-bottom: 20px;
+}
+.container .card h2 {
+  font-weight: 400;
+}
+.primary {
+  background-color: #3a37ca;
+  color: #fff;
+}
+.success {
+  background-color: #688524;
+  color: #fff;
+}
+.danger {
+  background-color: #d9534f;
+  color: #fff;
+}
+.info {
+  background-color: #5bc0de;
+  color: #fff;
+}
+
+mat-card {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+  transition: all ease 0.3s;
+}
+mat-card:hover {
+  opacity: 0.8;
+}
+
+mat-icon {
+  font-size: 40px;
+  width: 50px;
+  height: 50px;
+}
+
+.container.table {
+  display: block;
+}
+
+.container.tab {
+  padding: 20px;
+  background-color: #fff;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+mat-tab-group {
+  padding: 20px !important;
+  background-color: #fff !important;
+  margin-bottom: 48px;
+}
+
+.container.tab .card {
+  width: 47%;
+}
+
+table {
+  width: 100%;
+}
+
+.example-headers-align .mat-expansion-panel-header-title,
+.example-headers-align .mat-expansion-panel-header-description {
+  flex-basis: 0;
+}
+
+.example-headers-align .mat-expansion-panel-header-description {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.example-headers-align .mat-form-field + .mat-form-field {
+  margin-left: 8px;
+}
+@media screen and (max-width: 590px) {
+  .container .card {
+    width: 47%;
+  }
+}
