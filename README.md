@@ -13,4 +13,4 @@ Projeto realizado como prova prática para processo seletivo
 ### Estrutura de guard
 ### Framework Material (Angular)
 
-<a href="https://dart.viploja.com.br/">Online Demo: </a>
+<a href="https://dart.viploja.com.br/" target="_blank">Online Demo: </a>
